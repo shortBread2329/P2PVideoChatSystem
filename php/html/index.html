@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>many</title>
+	<link rel="stylesheet" href="MDL/material.min.css">
+	<script src="MDL/material.min.js"></script>
+
+	<!--  peerjsライブラリファイル --><script type='text/javascript' src='manyfusion/peer.js'></script>
+	<!-- jqueryライブラリファイル --><script type='text/javascript' src='manyfusion/jquery.min.js'></script>
+	<!-- 初期化コード --><script type='text/javascript' src='manyfusion/manyInit.js'></script>
+	<!-- ボタンと表示メソッド群コード --><script type='text/javascript' src='manyfusion/manyInterface.js'></script>
+	<!-- ビデオチャットと電話の通信と表示コード --><script type='text/javascript' src='manyfusion/manyMedia.js'></script>
+	<!-- チャット、ファイルの通信と表示コード --><script type='text/javascript' src='manyfusion/manyChat.js'></script>
+	<!-- manyでのエラー取得コード --><script type='text/javascript' src='manyfusion/manyError.js'></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="MDL/layout_main.css">
+
+
+</head>
+
+<body>
+	<div id="site_box">
+
+		<div id="header-box">
+			<h1>many</h1>
+			<input type="button" value="ログアウト"  id="logout_button" class="mdl-button mdl-js-button mdl-js-ripple-effect" onClick="logout()">
+		</div>
+
+		<div id="menu-box">
+			<div id="menu_button">
+				<button id="button_friend" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+				<i class="material-icons">person_add</i>　フレンド追加</button>
+				<button id="button_group" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+				<i class="material-icons">group_add</i>　グループ作成</button>
+			</div>
+			<div id="meeting">
+				<p id="meeting_title">グループ</p>
+			</div>
+			<div id="friend">
+				<p id="friend_title">フレンド</p>
+			</div>
+		</div>
+
+		<div id="main-box">
+			<img id="your_icon" src="human.png">
+			<p id="your_name">相手の名前(フレンドをクリックしてください)</p>
+			<p id="your_id">相手のID(フレンドをクリックしてください)</p>
+
+			<div id="botan">
+				<!-- FAB button with ripple -->
+				<button id="button_call" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" title="音声通話">
+				<i class="material-icons">call</i></button>
+
+				<!-- FAB button with ripple -->
+				<button id="button_video" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" title="ビデオ通話">
+				<i class="material-icons">videocam</i></button>
+
+				<!-- FAB button with ripple -->
+				<button id="button_callend" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" title="切断">
+				<i class="material-icons">call_end</i></button>
+
+				<!-- FAB button with ripple -->
+				<button id="button_mic" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" title="ミュート">
+				<i class="material-icons">mic</i></button>
+
+				<!-- FAB button with ripple -->
+				<button id="button_personadd" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" title="フレンド追加">
+				<i class="material-icons">person_add</i></button>
+
+				<!-- FAB button with ripple -->
+				<button id="button_file" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" title="ファイル送信">
+				<i class="material-icons">description</i></button>
+			</div>
+
+			<div id="chat">
+				<textarea id="chat_log" cols = "40" rows ="10" wrap="hard" readonly></textarea><br>
+				<form>
+					<input type="text" id="chat_me" size="40" maxlength="20">
+					<input type="button" id="button_go" class="mdl-button mdl-js-button mdl-button--raised" value="送信">
+				</form>
+			</div>
+		</div>
+
+		<div id="footer-box">
+		Copyright (C) 2015 magnet Corporation. All Rights Reserved.
+		</div>
+
+	</div>
+</body>
+</html>

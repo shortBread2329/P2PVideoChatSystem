@@ -1,0 +1,67 @@
+
+<!--
+	プロトタイプ番号:＠
+	製作者:＠,＠,＠
+	提出日:＠/＠/＠
+-->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>many</title>
+	<link rel="stylesheet" href="MDL/material.min.css">
+	<link rel="stylesheet" href="many.css">
+	<script src="MDL/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+<!-- Wide card with share menu button -->
+<style>
+
+</style>
+
+<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+
+  </div>
+
+<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+
+
+  <!--ログイン画面-->
+ <!-- ID入力 -->
+
+<form action = '../php/base.php' moethod='GET'>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="text" id="sample3" maxlength="20" pattern="^[0-9A-Za-z]+$" name="u_id"/>
+    <label class="mdl-textfield__label" for="sample3">ID</label>
+  </div>
+  <br/>
+<!-- password入力 -->
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="password" id="sample4" maxlength="20" pattern="^[0-9A-Za-z]+$"  name="u_pass"/>
+    <label class="mdl-textfield__label" for="sample4">password</label>
+    <span class="mdl-textfield__error"></span>
+  </div>
+
+  <div class="mdl-card__actions mdl-card--border">
+  	<!-- Primary-colored flat button -->
+	<a class="mdl-button mdl-js-button mdl-button--primary"   href="pass.html">
+	 パスワードを忘れた方
+	</a>
+    <input type="submit" value="ログイン" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+
+  </div>
+ </form>
+  <div class="mdl-card__menu">
+   <!-- <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <i class="material-icons">share</i>
+    </button>
+  </div>	-->
+</div>
+</body>
+</html>

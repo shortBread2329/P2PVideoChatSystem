@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	フレンド欄.<input type="button" value="更新" onClick="location.href='../php/fri_in.php'">
+
+
+	<h3>フレンド</h3>
+	<ul>
+	<li>市松</li>
+	<li>ペロロンチーノ</li>
+	<script>
+	  console.log("123");
+	  if(document.cookie != ""){
+		  document.write( "<li>" +  document.cookie + "</li>" );
+
+		  var cookieString = document.cookie;
+
+		  var cookieKeyArray = cookieString.split(";");
+
+		  for (var i=0; i<cookieKeyArray.length; i++) {
+			  var targetCookie = cookieKeyArray[i];
+
+			  targetCookie = targetCookie.replace(/^\s+|\s+$/g, "");
+
+			  var valueIndex = targetCookie.indexOf("=");
+			  if (targetCookie.substring(0, valueIndex) == key) {
+				  document.write( "<li>" +  targetCookie.slice(valueIndex + 1) + "</li>" );
+			  }
+		  }
+
+		}else{
+			console.log("456");
+			document.write("<li>test</li>");
+		}
+	</script>
+
+	</ul>
+
+</body>
+</html>

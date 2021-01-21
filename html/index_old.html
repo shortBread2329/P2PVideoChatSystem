@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>many</title>
+	<link rel="stylesheet" href="MDL/material.min.css">
+	<script src="MDL/material.min.js"></script>
+
+	<!--  peerjsライブラリファイル --><script type='text/javascript' src='manyfusion/peer.js'></script>
+	<!-- jqueryライブラリファイル --><script type='text/javascript' src='manyfusion/jquery.min.js'></script>
+	<!-- 初期化コード --><script type='text/javascript' src='manyfusion/manyInit.js'></script>
+	<!-- ボタンと表示メソッド群コード --><script type='text/javascript' src='manyfusion/manyInterface.js'></script>
+	<!-- ビデオチャットと電話の通信と表示コード --><script type='text/javascript' src='manyfusion/manyMedia.js'></script>
+	<!-- チャット、ファイルの通信と表示コード --><script type='text/javascript' src='manyfusion/manyChat.js'></script>
+	<!-- manyでのエラー取得コード --><script type='text/javascript' src='manyfusion/manyError.js'></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="MDL/layout_main.css">
+	<link rel="stylesheet" href="many.css">
+
+</head>
+
+<body>
+	<div id="site_box">
+
+		<div id="header-box">
+			<h1>many</h1>
+			<input type="button" value="ログアウト"  id="logout_button" class="mdl-button mdl-js-button mdl-js-ripple-effect" onClick="logout()">
+			<input type="button" value="設定"  id="logout_button" class="mdl-button mdl-js-button mdl-js-ripple-effect" onClick="setteiBotan()">
+			<input type="button" value="ホーム"  id="logout_button" class="mdl-button mdl-js-button mdl-js-ripple-effect" onClick="homeBotan()">
+			<p id="myname"></p>
+			<!--  a id="help_button" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"  onclick="setteiBotan()">設定</a-->
+
+		</div><!-- header-box -->
+
+		<div id="menu-box">
+			<div id="menu_button">
+				<div id="friend_plus">
+
+				<button id="button_friend" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="friendBotan()">
+				<i class="material-icons">person_add</i>フレンド追加
+				</button>
+
+				<form name="friendFm" action="../php/searchFriend.php" method="POST" onsubmit="getSearchId()">
+					<div id="form_friend" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label hide">
+	   		 		<input name="user_id" id="friend_txt" class="mdl-textfield__input"  type="text" maxlength="20" pattern="^[0-9A-Za-z]+$" id="f_id" />
+	   				<label id="friend_txt" class="mdl-textfield__label" for="sample3">フレンドID</label>
+	   				<input type="submit" value="検索"/>
+	  				</div>
+				</form>
+				<div id="searchFriendResult"></div>
+
+				<button id="button_group" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="meetingBotan()">
+				<i class="material-icons">group_add</i>グループ作成</button>
+
+				<form id="form_meeting" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label hide" name="meetingFm" action="../php/nullMeetingInsert.php" method="POST">
+				<div>
+   		 		<input name="group_name" id="group_txt" class="mdl-textfield__input"  type="text" maxlength="20" id="f_id" />
+   				 <label id="group_txt" class="mdl-textfield__label" for="sample3">グループ名</label>
+   				 <input type="submit" value="作成"/>
+  				</div>
+				</form>
+
+
+  				</div>
+			</div>
+			<div id="meeting">
+				<p id="meeting_title">グループ</p>
+			</div>
+			<div id="friend">
+				<p id="friend_title">フレンド</p>
+			</div>
+		</div><!-- menu-box -->
+
+
+		<div id="main-box">
+		<div id="main-box1"><!--mainbox-->
+			<div id="video" class="hide">
+			<video id="myvideo"  autoplay="autoplay" controls muted="true"></video>
+			<video id="yourvideo1" autoplay="autoplay" controls></video>
+			<video id="yourvideo2" autoplay="autoplay" controls></video>
+			</div>
+
+			<div id="audio" class="hide">
+			<audio id="myaudio"  autoplay="autoplay" controls muted="true"></audio>
+			<audio id="youraudio1"  autoplay="autoplay" controls></audio>
+			<audio id="youraudio2"  autoplay="autoplay" controls></audio>
+			</div>
+			<!-- img id="your_icon" src="human.png" -->
+			<p id="your_name">相手の名前(フレンドをクリックしてください)</p>
+			<p id="your_id">相手のID(フレンドをクリックしてください)</p>
+
+			<div id="botan">
+				<!-- FAB button with ripple -->
+				<button id="button_call" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" title="音声通話" onclick="onseiBotan()">
+				<i class="material-icons">call</i></button>
+
+				<!-- FAB button with ripple -->
+				<button id="button_video" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" title="ビデオ通話" onclick="videoBotan()" >
+				<i class="material-icons">videocam</i></button>
+
+				<!-- FAB button with ripple -->
+				<button id="button_callend" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" title="切断" onclick="setudanBotan()">
+				<i class="material-icons">call_end</i></button>
+
+				<!-- FAB button with ripple -->
+				<button id="button_mic" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" title="ミュート" onclick="muteBotan()" >
+				<i class="material-icons">mic</i></button>
+
+				<!-- FAB button with ripple -->
+				<!-- div class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" style="overflow: hidden;" -->
+				<!-- i class="material-icons" style="overflow: hidden; position:relative;">description<input id="button_file" type="file" multiple="multiple" title="ファイル送信" /></i-->
+				<input id="button_file" type="file" multiple="multiple" title="ファイル送信" />
+			</div>
+
+			<div id="chat">
+				<textarea id="chat_log" cols = "40" rows ="10" wrap="hard" readonly></textarea><br>
+				<form>
+					<input type="text" id="chat_me" size="40" maxlength="20">
+					<input type="button" id="button_go" class="mdl-button mdl-js-button mdl-button--raised" value="送信" onclick="chatBotan()">
+				</form>
+			</div>
+		</div><!--mainbox-->
+
+		<div id="main-box2" class="hide"><!--mainbox-->
+			<a id="out_button" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"  onclick="profBotan()">プロフィール変更</a>
+			<a id="out_button" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"  onclick="taikaiBotan()">退会する</a>
+		</div><!--mainbox-->
+
+		<div id="main-box3" class="hide">
+			<div id="profile">
+				<h2>プロフィール変更</h2>
+				<!--変更する前のものを表示させる-->
+		    	<!--ニックネーム変更 -->
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    				<input name="u_name" class="mdl-textfield__input" type="text" maxlength="20" id="sample3" />
+ 	   				<label class="mdl-textfield__label" for="sample3">ニックネーム変更</label>
+ 				 </div><br>
+ 				 <!--本名変更 -->
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    				<input name="u_name" class="mdl-textfield__input" type="text" maxlength="20" id="sample3" />
+ 	   				<label class="mdl-textfield__label" for="sample3">ユーザー名(本名)変更</label>
+ 				 </div><br>
+ 				 <!--メールアドレス変更 -->
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    				<input name="u_name" class="mdl-textfield__input" type="text" maxlength="20" id="sample3" />
+ 	   				<label class="mdl-textfield__label" for="sample3">メールアドレス変更</label>
+ 				 </div><br>
+			</div>
+			<div class="completiont-button">
+    			<input type="submit" value="完了" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+			</div>
+		</div><!--mainbox-->
+
+		<div id="main-box4" class="hide">
+			<div id="t-title">
+				<h2>退会ページ</h2>
+			</div>
+			<p>
+				退会するとこれまでの履歴はすべて消去されます。<br>
+				それでも宜しければパスワードを入力して退会ボタンを押してください。<br>
+				</p>
+			<p>＊6文字以上20文字以内で半角英数字を交えて入力してください。</p><br>
+		 	<!--パスワード入力 -->
+
+			<!--半角英数字をそれぞれ1種類以上含む6文字以上20文字以下の正規表現-->
+			<!--passwordを入れると全角の文字を入れてもエラーが出ない-->
+ 		 	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    			<input name="user_pass" class="mdl-textfield__input" type="password" maxlength="20" pattern="^(?=.*?[a-zA-Z])(?=.*?\d)[a-zA-Z\d]{6,20}$" id="sample3" />
+  	  			<label class="mdl-textfield__label" for="sample3">パスワード</label>
+ 		 	</div><br><br>
+
+   				<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="homeBotan()">戻る</a>
+    			<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">	退会（未実施）</a>
+
+		</div><!--main-box-->
+
+		</div><!--ALL main-box-->
+
+		<div id="footer-box">
+		Copyright (C) 2015 magnet Corporation. All Rights Reserved.
+		</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>many</title>
+	<link rel="stylesheet" href="MDL/material.min.css">
+	<script src="MDL/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="layout_main.css">
+
+
+</head>
+
+<body>
+	<div id="site_box">
+
+		<div id="header-box">
+			<h1>many</h1>
+			<button id="logout_button" class="mdl-button mdl-js-button mdl-js-ripple-effect">ログアウト</button>
+			<a id="help_button" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"  href="settei.html">設定</a>
+		</div>
+
+		<div id="menu-box">
+			<div id="menu_button">
+				<div id="friend_plus">
+				<button id="button_friend" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+				<i class="material-icons">person_add</i>　フレンド追加</button>
+				
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+   		 		<input name="user_id" id="friend_txt" class="mdl-textfield__input"  type="text" maxlength="20" pattern="^[0-9A-Za-z]+$" id="f_id" />
+   				 <label id="friend_txt" class="mdl-textfield__label" for="sample3">フレンドID</label>
+  				</div>
+  				
+  				</div>
+				
+				
+				<button id="button_group" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+				<i class="material-icons">group_add</i>　グループ作成</button>
+				
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+   		 		<input name="user_id" id="group_txt" class="mdl-textfield__input"  type="text" maxlength="20" pattern="^[0-9A-Za-z]+$" id="f_id" />
+   				 <label id="group_txt" class="mdl-textfield__label" for="sample3">グループID</label>
+  				</div>
+				
+			</div>
+			<div id="meeting">
+				<p id="meeting_title">グループ</p>
+			</div>
+			<div id="friend">
+				<p id="friend_title">フレンド</p>
+			</div>
+		</div>
+
+		<div id="main-box">
+
+		
+		</div>
+
+		<div id="footer-box">
+		Copyright (C) 2015 magnet Corporation. All Rights Reserved.
+		</div>
+
+	</div> 
+</body>
+</html>

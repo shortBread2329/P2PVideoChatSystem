@@ -1,0 +1,71 @@
+@charset "shift_jis";
+
+
+*{
+	font-family: "メイリオ";
+	margin: 0 auto;
+}
+
+body {
+	margin-top: 20px;
+	text-align: center;
+}
+
+/* h2 */
+.mdl-card__title-text {
+	font-family: "メイリオ";
+	color: #FF9872;
+	font-weight: bold;
+	text-align: right;
+}
+
+.mdl-button {
+	font-family: "メイリオ";
+}
+
+.demo-card-wide.mdl-card {
+  width: 1000px;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('img/logo.png');
+  width: 1000px;
+  height: 200px;
+  
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+
+.p1{
+	font-size: 1.5em;
+}
+
+.mdl-button{
+	margin: 15px;
+}
+
+.p3{
+	text-align: left;
+	padding-left:60px;
+}
+
+
+.pwrap{
+	height:600px;
+}
+
+.birth a{
+	color:#000;
+}
+
+.birth{
+	margin-top: 30px;
+	margin-bottom: 30px;
+
+}
+
+.next-button{
+	text-align: right;
+}
